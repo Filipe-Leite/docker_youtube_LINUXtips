@@ -1,0 +1,5 @@
+Aula 8 ------------------------------
+
+docker run hello-world             #busca imagem docker e executa
+
+
