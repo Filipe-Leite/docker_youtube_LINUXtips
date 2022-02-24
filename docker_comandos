@@ -1,5 +1,84 @@
-Aula 8 ------------------------------
+AULA 10 --------------------------------------------------------------
 
 docker run hello-world             #busca imagem docker e executa
+
+docker ps			   #mostra containers em execução
+
+docker ps -a                       #mostra todos os containers
+
+docker run -ti ubuntu /bin/bash    # ti(terminal interativo), 
+				   # ubuntu(nome da imagem),
+				   # /bin/bash(comando desejado)
+
+docker run -ti centos:7		   # roda a imagem do CentOS 
+
+cat /etc/redhat-releas		   # mostra a versão
+
+ctrl+p+q			   # sai do container em execução sem kill
+
+docker attach [container ID]       # volta para container
+
+docker create [nome do container. ex: ubuntu] #cria container mas não executa
+
+cat /etc/debian_version            # mostra versão da distro
+
+docker stop [CONTAINER ID]         # encerra execução de container
+
+docker start [CONTAINER ID]        # inicia container
+
+docker pause [Container id]        # congela container
+
+docker unpause [CONTAINER ID]	   # descongelar container
+
+docker stats [Container id]        # lista status do container
+
+docker rm [container id]	   # remove container que não está em execução
+
+docker rm [container id]           # remove container em execução
+
+docker inspect [container id]	   # mostra todas as informações do container
+
+docker run -ti --name [nome desejado]	#--name adiciona nome no container
+
+docker inspect [container id] | grep -i mem # lista informações de memoria
+                                            # do container
+
+docker run -ti --memory 512m --name [nome]  # especificar o limite de 
+					    # memoria do container
+
+docker update -m 256m nome	            # ajustar espaço de memoria de um
+					    # container em execução
+
+docker run -ti --cpu-shares 1024 --name [nome desejado] # definir que use 50%
+							# dos recursos de cpu 
+
+docker inspect [nome do container] | grep -i cpu  # inspeciona o cpushare
+
+docker update --cpu-shares [mudança de cpu-shares # ajusta configuração de 
+						  # cpushares
+
+AULA 10 ----------------------------------------------------------------
+
+
+volume: forma de colocar um diretório dentro do container fora do filesystem
+do container. É um compartilhamento de um diretório dentro do hostdocker com 
+o container. 
+
+docker run -ti -v /[nome do volume] uvuntu /bin/bash  # monta volume
+
+df -h							# lista volumes
+
+docker inspect -f {{.Mounts}} [nome ou container ID]
+
+mkdir /root/[nome do docker file]
+
+docker run -ti -v /root/[nome do docker file]:/volume   # faz com que o diretorio /root/
+						        # /root/[nome do docker file]
+							# dentro do container
+							# em um diretório 
+							# chamado /volume
+
+AULA 11 ---------------------------------------------------------------------
+
 
 
